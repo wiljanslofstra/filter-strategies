@@ -92,7 +92,7 @@
     </div>
 
     <script type="text/javascript">
-        var products = [
+        var items = [
             <?php
                 $colors = array('red', 'blue', 'yellow', 'green');
             ?>
@@ -113,14 +113,18 @@
         <ul class="items-list">
             <% items.forEach(function(item) { %>
             <li class="items-list__item">
-                Name:<br>
+                <strong>Name:</strong><br>
                 <%- item.name %><br>
-                Price:<br>
+                <strong>Price:</strong><br>
                 <%- item.price %><br>
-                Populariy:<br>
+                <strong>Popularity:</strong><br>
                 <%- item.popularity %><br>
-                Color:<br>
-                <%- item.color %>
+                <strong>Color:</strong><br>
+                <%- item.color %><br>
+                <strong>Options:</strong><br>
+                <%- item.options.join(', ') %><br>
+                <strong>Radios:</strong><br>
+                <%- item.radios.join(', ') %>
             </li>
             <% }); %>
         </ul>

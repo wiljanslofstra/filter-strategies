@@ -9,7 +9,7 @@ export default (arr, opts) => {
   const sortingProperty = opts.sorting.split('-')[1];
   const sortingDirection = opts.sorting.split('-')[0];
 
-  const sorted = sortBy(arr, product => product[sortingProperty]);
+  const sorted = sortBy(arr, item => item[sortingProperty]);
 
   if (sortingDirection === 'desc') {
     sorted.reverse();

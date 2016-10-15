@@ -1,31 +1,31 @@
 import { each, filter } from 'lodash';
 
-export default (arr, opts) => filter(arr, (product) => {
-  let productValid = true;
+export default (arr, opts) => filter(arr, (item) => {
+  let itemValid = true;
 
   // Loop through filters
   each(opts, (opt, optKey) => {
-    if (typeof product[optKey] === 'undefined') {
+    if (typeof item[optKey] === 'undefined') {
       return;
     }
 
     if (Array.isArray(opt)) {
-      const prodOptions = product[optKey];
+      const itemOptions = item[optKey];
       let checkboxesValid = false;
 
       opt.forEach((filterOption) => {
-        if (prodOptions.indexOf(filterOption) >= 0) {
+        if (itemOptions.indexOf(filterOption) >= 0) {
           checkboxesValid = true;
         }
       });
 
       if (!checkboxesValid) {
-        productValid = false;
+        itemValid = false;
       }
-    } else if (product[optKey].indexOf(opt) < 0) {
-      productValid = false;
+    } else if (item[optKey].indexOf(opt) < 0) {
+      itemValid = false;
     }
   });
 
-  return productValid;
+  return itemValid;
 });
