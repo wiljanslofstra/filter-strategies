@@ -1,0 +1,58 @@
+{
+  "name": "filter-strategies",
+  "version": "0.1.0",
+  "author": "Wiljan Slofstra <wiljanslofstra@gmail.com>",
+  "description": "Front-end boilerplate with a few pre-build modules for web development",
+  "homepage": "https://github.com/wiljanslofstra/Gliese",
+  "repository": {
+    "type": "git",
+    "url": "git://git@github.com:wiljanslofstra/Gliese.git"
+  },
+  "contributors": [
+    {
+      "name": "Wiljan Slofstra",
+      "email": "wiljanslofstra@gmail.com",
+      "url": "https://www.wiljanslofstra.com/"
+    }
+  ],
+  "scripts": {
+    "start": "npm-run-all --parallel dev:js sass",
+    "production": "parallelshell \"npm run production:js\" \"npm run production:sass\"",
+    "dev:js": "node ./bin/run bundle ENV=DEVELOPMENT",
+    "sass": "nodemon -e scss --watch src/sass -x \"node ./bin/run sass\"",
+    "production:js": "node ./bin/run bundle ENV=PRODUCTION",
+    "build:lodash": "lodash include=\"each,filter,map,debounce,template,sortBy\" -o assets/javascript/vendor/lodash.custom.js",
+    "analyse:eslint": "eslint src/javascript/**/*.js",
+    "test": "npm run analyse:eslint"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.0",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.16.0",
+    "cssnano": "^3.7.6",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-import": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "imports-loader": "^0.6.5",
+    "node-sass": "^3.10.1",
+    "nodemon": "^1.11.0",
+    "postcss": "^5.2.4",
+    "postcss-reporter": "^1.4.1",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.9.1",
+    "bootstrap-sass": "^3.3.7",
+    "bourbon": "^4.2.7",
+    "es6-promise": "^4.0.5",
+    "lodash": "~4.16.4",
+    "npm-run-all": "^3.1.1",
+    "qs": "^6.2.1",
+    "whatwg-fetch": "^1.0.0"
+  }
+}
