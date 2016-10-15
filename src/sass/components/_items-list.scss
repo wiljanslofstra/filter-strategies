@@ -1,0 +1,23 @@
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 -.5rem;
+
+  font-size: 0;
+}
+  .items-list__item {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    margin-bottom: 15px;
+    width: 30%;
+    width: calc(33.333% - 1rem);
+
+    font-size: 1rem;
+
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #e6e6e6;
+    box-shadow: 1px 1px 5px -2px rgba(30,30,30,.1);
+  }

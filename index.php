@@ -21,23 +21,37 @@
 </head>
 
 <body>
-    <style>
-        .is-cloaked {
-            opacity: 0;
-        }
-    </style>
 
-    <div class="row">
-        <div class="col-sm-4">
-            <form class="js-filter is-cloaked">
-                <div class="filter-group">
+    <div class="container">
+        <div class="row">
+            <form class="js-filter is-cloaked col-sm-4 col-lg-3 filter">
+                <div class="form-group">
+                    <label>
+                        Options
+                    </label>
                     <?php for ($i = 0; $i < 11; $i++) : ?>
                         <input type="checkbox" name="options" id="option-<?= $i ;?>" value="option-<?= $i ;?>">
-                        <label for="option-<?= $i ;?>">Optie <?= $i ;?></label>
+                        <label for="option-<?= $i ;?>">Option <?= $i ;?></label>
                     <?php endfor; ?>
                 </div>
 
-                <div class="filter-group">
+                <div class="form-group">
+                    <label>
+                        Radio options
+                    </label>
+                    <input type="radio" name="radios" id="radio-empty" value="" checked>
+                    <label for="radio-empty">Radio empty</label>
+
+                    <?php for ($i = 0; $i < 4; $i++) : ?>
+                        <input type="radio" name="radios" id="radio-<?= $i ;?>" value="radio-<?= $i ;?>">
+                        <label for="radio-<?= $i ;?>">Radio <?= $i ;?></label>
+                    <?php endfor; ?>
+                </div>
+
+                <div class="form-group">
+                    <label for="color">
+                        Colors
+                    </label>
                     <select name="color" id="color">
                         <option value=""></option>
                         <option value="yellow">Yellow</option>
@@ -47,12 +61,18 @@
                     </select>
                 </div>
 
-                <div class="filter-group">
+                <div class="form-group">
+                    <label>
+                        Price
+                    </label>
                     <input type="text" value="10" name="price-from">
                     <input type="text" value="90" name="price-to">
                 </div>
 
-                <div class="filter-group">
+                <div class="form-group">
+                    <label for="sorting">
+                        Sort by
+                    </label>
                     <select name="sorting" id="sorting">
                         <option value="asc-popularity">Popular</option>
                         <option value="asc-price">Price (asc)</option>
@@ -60,23 +80,13 @@
                         <option value="asc-date">New collection</option>
                     </select>
                 </div>
-
-                <div class="filter-group">
-                    <input type="radio" name="radios" id="radio-empty" value="" checked>
-                    <label for="radio-empty">Radio empty</label>
-
-                    <?php for ($i = 0; $i < 4; $i++) : ?>
-                        <input type="radio" name="radios" id="radio-<?= $i ;?>" value="radio-<?= $i ;?>">
-                        <label for="radio-<?= $i ;?>">Radio <?= $i ;?></label>
-                    <?php endfor; ?>
-                </div>
             </form>
-        </div>
 
-        <div class="col-sm-8">
-            <div class="js-filter-count"></div>
+            <div class="col-sm-8 col-lg-9">
+                <div class="js-filter-count items-count"></div>
 
-            <div class="js-filter-list">
+                <div class="js-filter-list">
+                </div>
             </div>
         </div>
     </div>
@@ -92,7 +102,7 @@
                 price: <?= rand(342, 3490); ?>,
                 popularity: <?= rand(0, 100); ?>,
                 options: ['option-<?= rand(0, 10); ?>', 'option-<?= rand(0, 10); ?>', 'option-<?= rand(0, 10); ?>'],
-                color: '<?= $colors[rand(0, 4)]; ?>',
+                color: '<?= $colors[rand(0, 3)]; ?>',
                 radios: ['radio-<?= rand(0, 3); ?>'],
             },
             <?php endfor; ?>
@@ -100,9 +110,9 @@
     </script>
 
     <script type="text/template" id="item-template">
-        <ul>
+        <ul class="items-list">
             <% items.forEach(function(item) { %>
-            <li style="margin-bottom: 15px; width: 33%; float: left;">
+            <li class="items-list__item">
                 Name:<br>
                 <%- item.name %><br>
                 Price:<br>

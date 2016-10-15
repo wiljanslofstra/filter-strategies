@@ -11,4 +11,23 @@
   'utils/spacing-utilities';
 @import
   'vendor/bootstrap';
+@import
+  'components/filter',
+  'components/custom-checkbox',
+  'components/items-list',
+  'components/items-count';
 
+body,
+html {
+  background: #faf9f9;
+  font-size: 15px;
+}
+
+.container {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.is-cloaked {
+  opacity: 0;
+}
