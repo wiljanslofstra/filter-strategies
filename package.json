@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "author": "Wiljan Slofstra <wiljanslofstra@gmail.com>",
   "description": "Front-end boilerplate with a few pre-build modules for web development",
-  "homepage": "https://github.com/wiljanslofstra/Gliese",
+  "homepage": "https://github.com/wiljanslofstra/filter-strategies/",
   "repository": {
     "type": "git",
-    "url": "git://git@github.com:wiljanslofstra/Gliese.git"
+    "url": "git://git@github.com:wiljanslofstra/filter-strategies.git"
   },
   "contributors": [
     {
