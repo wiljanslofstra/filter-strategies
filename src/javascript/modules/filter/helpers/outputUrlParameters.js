@@ -1,4 +1,5 @@
 import qs from 'qs';
+import config from '../config';
 
 /**
  * Output the options to the url as hash. The method will use the History API when
@@ -9,8 +10,10 @@ import qs from 'qs';
 export default (obj) => {
   const stringified = qs.stringify(obj, { encode: false });
 
+  const paramType = (config.PARAMETER_TYPE === 'get') ? '?' : '#';
+
   if (window.history) {
-    window.history.replaceState(undefined, undefined, `#${stringified}`);
+    window.history.replaceState(undefined, undefined, `${paramType}${stringified}`);
   } else {
     location.hash = stringified;
   }
