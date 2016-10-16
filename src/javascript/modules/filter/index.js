@@ -45,7 +45,7 @@ function runFilter() {
     outputUrlParameters(options);
 
     // Render the items with the chosen strategry
-    strategy.renderWithOptions(options, (filtered) => {
+    strategy.filterWithOptions(options, (filtered) => {
       renderItems.render(filtered, output);
     });
   });

@@ -23,7 +23,7 @@ export default {
    * @param  {Function} cb       Callback after the filtering has been done
    * @return {Void}
    */
-  renderWithOptions(opts, cb) {
+  filterWithOptions(opts, cb) {
     console.log('render with options', opts);
 
     if (typeof window.items === 'undefined') {
