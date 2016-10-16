@@ -23,5 +23,5 @@ export default {
   SORT_SELECTOR: '[data-filter-sort]',
 
   // How to output the filter options in the url. Either 'hash' or 'get'
-  PARAMETER_TYPE: 'get',
+  PARAMETER_TYPE: 'hash',
 };

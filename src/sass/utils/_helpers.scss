@@ -16,3 +16,14 @@
 
 // [converter] extracted as `@mixin list-unstyled` for libsass compatibility
 .u-list-unstyled { @include list-unstyled; }
+
+.u-icon-link {
+
+}
+  .u-icon-link--before .icon {
+    margin-right: .35rem;
+  }
+
+  .u-icon-link--after .icon {
+    margin-left: .35rem;
+  }

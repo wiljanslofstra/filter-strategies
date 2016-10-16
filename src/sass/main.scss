@@ -25,6 +25,10 @@ html {
   font-size: 15px;
 }
 
+body {
+  border-top: 5px solid $color-primary;
+}
+
 .container {
   padding-top: 4rem;
   padding-bottom: 4rem;

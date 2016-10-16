@@ -39,7 +39,7 @@
                     <label>
                         Radio options
                     </label>
-                    <input type="radio" name="radios" id="radio-empty" value="" checked>
+                    <input type="radio" name="radios" id="radio-empty" value="" checked data-default>
                     <label for="radio-empty">Radio empty</label>
 
                     <?php for ($i = 0; $i < 4; $i++) : ?>
@@ -67,8 +67,8 @@
                     <label>
                         Price
                     </label>
-                    <input type="text" value="342" name="price-from">
-                    <input type="text" value="3490" name="price-to">
+                    <input type="text" value="342" name="price-from" data-default="342">
+                    <input type="text" value="3490" name="price-to" data-default="3490">
                 </div>
 
                 <div class="form-group">
@@ -77,12 +77,18 @@
                     </label>
                     <div class="custom-select">
                         <select name="sorting" id="sorting">
-                            <option value="asc-popularity">Popular</option>
+                            <option value="asc-popularity" data-default>Popular</option>
                             <option value="asc-price">Price (asc)</option>
                             <option value="desc-price">Price (desc)</option>
                             <option value="asc-date">New collection</option>
                         </select>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <a class="u-icon-link u-icon-link--before js-filter-reset" href="#">
+                        <i class="icon icon-remove" aria-hidden="true"></i>Reset filters
+                    </a>
                 </div>
             </form>
 

@@ -6,6 +6,7 @@ import renderItems from './render';
 
 import outputUrlParameters from './helpers/outputUrlParameters';
 import retrieveUrlParameters from './helpers/retrieveUrlParameters';
+import resetFilter from './helpers/resetFilter';
 
 // Different strategies available to render products
 import strategyLocal from './strategies/local';
@@ -81,7 +82,12 @@ export default () => {
   filter.classList.remove('is-cloaked');
 
   // Listen for changes on the filter, and re-run if changes happen
-  handleInput(filter, () => {
-    runFilter();
+  handleInput(filter, (type) => {
+    if (type === 'change') {
+      runFilter();
+    } else {
+      resetFilter(filter);
+      runFilter();
+    }
   });
 };

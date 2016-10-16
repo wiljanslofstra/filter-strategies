@@ -8,9 +8,16 @@ export default (el, cb) => {
   const inputElements = el.querySelectorAll('input,select');
   const inputElementsArr = Array.prototype.slice.call(inputElements);
 
+  const resetButton = el.querySelector('.js-filter-reset');
+
   inputElementsArr.forEach((input) => {
     input.addEventListener('change', () => {
-      cb();
+      cb('change');
     });
+  });
+
+  resetButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    cb('reset');
   });
 };
