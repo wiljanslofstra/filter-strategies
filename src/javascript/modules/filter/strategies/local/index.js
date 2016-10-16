@@ -36,6 +36,8 @@ function render(arr, outputEl) {
 }
 
 export default {
+  updateOptionsListener: () => {},
+
   /**
    * Initial method when running this strategy, this will start the filtering and rendering process
    * @param  {Node}     outputEl Element where the items should be put after filtering
@@ -54,9 +56,9 @@ export default {
 
     render(filtered, outputEl);
 
-    this.updateOptions();
+    this.updateOptions(filtered);
 
-    cb(filtered);
+    cb();
   },
 
   /**
@@ -64,9 +66,7 @@ export default {
    * like disabling input fields
    * @return {Void}
    */
-  updateOptions() {
-    if (typeof this.updateOptionsListener !== 'undefined') {
-      this.updateOptionsListener();
-    }
+  updateOptions(filtered) {
+    this.updateOptionsListener(filtered);
   },
 };

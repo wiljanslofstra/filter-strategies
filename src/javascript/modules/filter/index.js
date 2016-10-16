@@ -36,8 +36,7 @@ function runFilter() {
   getFilterOptions(filter, (options) => {
     outputUrlParameters(options);
 
-    strategy.renderWithOptions(output, options, (filteredItems) => {
-      outputCount(filteredItems.length);
+    strategy.renderWithOptions(output, options, () => {
     });
   });
 }
@@ -45,8 +44,8 @@ function runFilter() {
 export default () => {
   const hash = location.hash;
 
-  strategy.updateOptionsListener = () => {
-    console.log('update options');
+  strategy.updateOptionsListener = (filteredItems) => {
+    outputCount(filteredItems.length);
   };
 
   if (hash) {
