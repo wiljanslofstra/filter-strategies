@@ -1,3 +1,9 @@
+/**
+ * Listen for changes on the filters
+ * @param  {Node}     el Filter container element
+ * @param  {Function} cb Callback when the filters have changed
+ * @return {Void}
+ */
 export default (el, cb) => {
   const inputElements = el.querySelectorAll('input,select');
   const inputElementsArr = Array.prototype.slice.call(inputElements);
