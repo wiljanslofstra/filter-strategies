@@ -23,7 +23,7 @@
     "production:js": "node ./bin/run bundle ENV=PRODUCTION",
     "build:lodash": "lodash include=\"each,filter,map,debounce,template,sortBy\" -o assets/javascript/vendor/lodash.custom.js",
     "analyse:eslint": "eslint src/javascript/**/*.js",
-    "copy:static": "cp -av src/icons build/icons",
+    "copy:static": "cp -av src/icons build/icons && cp -av src/images build/images",
     "test": "npm run analyse:eslint"
   },
   "devDependencies": {

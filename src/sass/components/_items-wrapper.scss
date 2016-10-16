@@ -1,0 +1,39 @@
+.items-wrapper {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 10px solid #ddd;
+    margin: -20px 0 0 -20px;
+    border-radius: 30px;
+    opacity: 0;
+    transition: opacity .3s $ease-out-quad;
+  }
+
+  &:after {
+    border-color: $color-primary;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    animation: spinner 1.75s ease-in-out infinite;
+  }
+
+  &.is-loading:before,
+  &.is-loading:after {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

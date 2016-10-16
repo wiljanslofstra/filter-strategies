@@ -98,7 +98,7 @@
             <div class="col-sm-8 col-lg-9">
                 <div class="js-filter-count items-count"></div>
 
-                <div class="js-filter-list">
+                <div class="js-filter-list items-wrapper">
                 </div>
             </div>
         </div>

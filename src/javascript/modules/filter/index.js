@@ -34,12 +34,22 @@ function outputCount(count) {
   countEl.innerHTML = `${count} ${word}`;
 }
 
+function showLoader() {
+  output.classList.add('is-loading');
+}
+
+function removeLoader() {
+  output.classList.remove('is-loading');
+}
+
 /**
  * Run the filter, this will first get all selected options and then renders the items
  * with the chosen strategry
  * @return {Void}
  */
 function runFilter() {
+  showLoader();
+
   // Get all chosen filter options
   getFilterOptions(filter, (options) => {
     // Output the chosen filter options in the url
@@ -48,6 +58,8 @@ function runFilter() {
     // Render the items with the chosen strategry
     strategy.filterWithOptions(options, (filtered) => {
       renderItems.render(filtered, output);
+
+      removeLoader();
     });
   });
 }
