@@ -65,8 +65,8 @@
                     <label>
                         Price
                     </label>
-                    <input type="text" value="10" name="price-from">
-                    <input type="text" value="90" name="price-to">
+                    <input type="text" value="342" name="price-from">
+                    <input type="text" value="3490" name="price-to">
                 </div>
 
                 <div class="form-group">

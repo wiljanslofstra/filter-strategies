@@ -6,8 +6,12 @@ import sortItems from './sortItems';
 const templateEl = document.getElementById('item-template');
 const templateHTML = templateEl.innerHTML;
 
-const countEl = document.querySelector('.js-filter-count');
-
+/**
+ * Run all types of filters on the data
+ * @param  {Array} arr   Data to sort and filter
+ * @param  {Object} opts All filters and options to account for while filtering
+ * @return {Array}       An array thats filtered and sorted -- ready to output
+ */
 function filterAndSortItems(arr, opts) {
   const filtered = filterItems(arr, opts);
   const sorted = sortItems(filtered, opts);
@@ -15,11 +19,12 @@ function filterAndSortItems(arr, opts) {
   return sorted;
 }
 
-function outputCount(count) {
-  const word = (count === 1) ? 'item' : 'items';
-  countEl.innerHTML = `${count} ${word}`;
-}
-
+/**
+ * Render the filtered items to the DOM
+ * @param  {Array}  arr      Array of all items to render into the DOM
+ * @param  {Node}   outputEl Element where the items should be outputted in
+ * @return {Void}
+ */
 function render(arr, outputEl) {
   const output = outputEl;
 
@@ -27,12 +32,17 @@ function render(arr, outputEl) {
 
   const mapped = itemTemplate({ items: arr });
 
-  outputCount(arr.length);
-
   output.innerHTML = mapped;
 }
 
 export default {
+  /**
+   * Initial method when running this strategy, this will start the filtering and rendering process
+   * @param  {Node}     outputEl Element where the items should be put after filtering
+   * @param  {Object}   opts     Filters and other options that should be accounted for
+   * @param  {Function} cb       Callback after the filtering has been done
+   * @return {Void}
+   */
   renderWithOptions(outputEl, opts, cb) {
     console.log('render with options', opts);
 
@@ -46,9 +56,14 @@ export default {
 
     this.updateOptions();
 
-    cb();
+    cb(filtered);
   },
 
+  /**
+   * This is a method that can update the options after the filtering has been done,
+   * like disabling input fields
+   * @return {Void}
+   */
   updateOptions() {
     if (typeof this.updateOptionsListener !== 'undefined') {
       this.updateOptionsListener();

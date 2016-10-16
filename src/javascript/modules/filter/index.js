@@ -19,12 +19,25 @@ const filter = document.querySelector(config.FILTER_CLASS);
 // Reference to the output element
 const output = document.querySelector(config.OUTPUT_CLASS);
 
+// Reference to the count output element
+const countEl = document.querySelector('.js-filter-count');
+
+/**
+ * Output the number of items after filtering
+ * @param  {Number} count Number of items
+ * @return {Void}
+ */
+function outputCount(count) {
+  const word = (count === 1) ? 'item' : 'items';
+  countEl.innerHTML = `${count} ${word}`;
+}
+
 function runFilter() {
   getFilterOptions(filter, (options) => {
     outputUrlParameters(options);
 
-    strategy.renderWithOptions(output, options, () => {
-      console.log('render succesful');
+    strategy.renderWithOptions(output, options, (filteredItems) => {
+      outputCount(filteredItems.length);
     });
   });
 }
