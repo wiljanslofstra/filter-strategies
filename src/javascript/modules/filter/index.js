@@ -2,6 +2,7 @@ import handleInput from './handleInput';
 import getFilterOptions from './getFilterOptions';
 import setFilters from './setFilters';
 import config from './config';
+import renderItems from './render';
 
 import outputUrlParameters from './helpers/outputUrlParameters';
 import retrieveUrlParameters from './helpers/retrieveUrlParameters';
@@ -44,8 +45,8 @@ function runFilter() {
     outputUrlParameters(options);
 
     // Render the items with the chosen strategry
-    strategy.renderWithOptions(output, options, () => {
-      // Do some general updates
+    strategy.renderWithOptions(options, (filtered) => {
+      renderItems(filtered, output);
     });
   });
 }
