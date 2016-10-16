@@ -46,13 +46,15 @@ function runFilter() {
 
     // Render the items with the chosen strategry
     strategy.renderWithOptions(options, (filtered) => {
-      renderItems(filtered, output);
+      renderItems.render(filtered, output);
     });
   });
 }
 
 export default () => {
   const hash = location.hash;
+
+  renderItems.precompile();
 
   // Bind a updateOptionsListener to the chosen strategry, if the strategry implements it,
   // this will callback when the options/filters need to be changed in response to the data
