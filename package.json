@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "start": "npm-run-all --parallel dev:js sass",
-    "production": "parallelshell \"npm run production:js\" \"npm run production:sass\"",
+    "production": "npm-run-all --parallel production:js sass",
     "dev:js": "node ./bin/run bundle ENV=DEVELOPMENT",
     "sass": "nodemon -e scss --watch src/sass -x \"node ./bin/run sass\"",
     "production:js": "node ./bin/run bundle ENV=PRODUCTION",
