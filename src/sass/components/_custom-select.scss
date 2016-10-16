@@ -1,0 +1,68 @@
+$c-select-border-width: 1px;
+$c-select-border: #dedede;
+$c-select-border-focus: darken($c-select-border, 20%);
+$c-select-border-radius: 3px;
+$c-select-height: 36px;
+$c-select-horizontal-padding: 10px;
+$c-select-arrow-width: 30px;
+
+.custom-select {
+  position: relative;
+  height: $c-select-height;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #fff, #f6f6f6);
+  border: $c-select-border-width solid $c-select-border;
+  border-radius: $c-select-border-radius;
+  padding-right: $c-select-arrow-width;
+}
+
+.custom-select select {
+  position: relative;
+  width: 130%;
+  height: $c-select-height - ($c-select-border-width * 2);
+  padding: 0 $c-select-horizontal-padding;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  z-index: 2;
+  text-overflow: ellipsis;
+  appearance: none;
+  cursor: pointer;
+}
+
+// Hide arrow on IE10
+.custom-select select::-ms-expand {
+  display: none;
+}
+
+// Disable default focus
+.custom-select select:focus {
+  outline: none;
+}
+
+// Arrow
+.custom-select:after {
+  content: "\f107";
+  font-family: 'icomoon';
+  font-size: 1.25rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: $c-select-arrow-width;
+  text-align: center;
+  line-height: $c-select-height - ($c-select-border-width * 2);
+}
+
+// Custom focus,class is added by accessibility.js
+.custom-select.is-focussed {
+  border-color: $c-select-border-focus;
+}
+
+// Custom disabled,class is added by accessibility.js
+.custom-select.is-disabled {
+  color: #999;
+}
+
+.custom-select.is-disabled select {
+  cursor: default;
+}

@@ -52,13 +52,15 @@
                     <label for="color">
                         Colors
                     </label>
-                    <select name="color" id="color">
-                        <option value=""></option>
-                        <option value="yellow">Yellow</option>
-                        <option value="blue">Blue</option>
-                        <option value="green">Green</option>
-                        <option value="red">Red</option>
-                    </select>
+                    <div class="custom-select">
+                        <select name="color" id="color">
+                            <option value="">No preference</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="red">Red</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -73,12 +75,14 @@
                     <label for="sorting">
                         Sort by
                     </label>
-                    <select name="sorting" id="sorting">
-                        <option value="asc-popularity">Popular</option>
-                        <option value="asc-price">Price (asc)</option>
-                        <option value="desc-price">Price (desc)</option>
-                        <option value="asc-date">New collection</option>
-                    </select>
+                    <div class="custom-select">
+                        <select name="sorting" id="sorting">
+                            <option value="asc-popularity">Popular</option>
+                            <option value="asc-price">Price (asc)</option>
+                            <option value="desc-price">Price (desc)</option>
+                            <option value="asc-date">New collection</option>
+                        </select>
+                    </div>
                 </div>
             </form>
 
