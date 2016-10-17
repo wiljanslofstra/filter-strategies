@@ -1,5 +1,15 @@
 <?php
     define('BASE_URL', '');
+
+    $number_of_items = 500;
+
+    if (isset($_GET) && isset($_GET['total-items'])) {
+        $number_of_items = $_GET['total-items'];
+
+        if ($number_of_items > 50000) {
+            $number_of_items = 50000;
+        }
+    }
 ?>
 <!DOCTYPE html>
 <!--[if lte IE 9]><html class="no-js ie9 "> <![endif]-->
@@ -114,7 +124,7 @@
             <?php
                 $colors = array('red', 'blue', 'yellow', 'green');
             ?>
-            <?php for ($i = 0; $i < 500; $i++) : ?>
+            <?php for ($i = 0; $i < $number_of_items; $i++) : ?>
             {
                 name: 'test',
                 price: <?= rand(342, 3490); ?>,
