@@ -1,3 +1,5 @@
+const paginationContainer = document.querySelector('.js-filter-pagination');
+
 /**
  * Listen for changes on the filters
  * @param  {Node}     el Filter container element
@@ -19,5 +21,16 @@ export default (el, cb) => {
   resetButton.addEventListener('click', (e) => {
     e.preventDefault();
     cb('reset');
+  });
+
+  paginationContainer.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (e.target && e.target.className === 'js-filter-paginate') {
+      const paginationEl = e.target;
+      const page = parseInt(paginationEl.dataset.page, 10);
+
+      cb('paginate', page);
+    }
   });
 };

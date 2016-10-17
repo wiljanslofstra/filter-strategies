@@ -7,6 +7,7 @@ import renderItems from './render';
 import outputUrlParameters from './helpers/outputUrlParameters';
 import retrieveUrlParameters from './helpers/retrieveUrlParameters';
 import resetFilter from './helpers/resetFilter';
+import renderPagination from './helpers/renderPagination';
 
 // Different strategies available to render products
 import strategyLocal from './strategies/local';
@@ -23,6 +24,8 @@ const output = document.querySelector(config.OUTPUT_CLASS);
 
 // Reference to the count output element
 const countEl = document.querySelector('.js-filter-count');
+
+const pageInput = document.querySelector('[name="page"]');
 
 /**
  * Output the number of items after filtering
@@ -56,8 +59,12 @@ function runFilter() {
     outputUrlParameters(options);
 
     // Render the items with the chosen strategry
-    strategy.filterWithOptions(options, (filtered) => {
-      renderItems.render(filtered, output);
+    strategy.filterWithOptions(options, (filteredAndPagination, filteredCollection) => {
+      renderItems.render(filteredAndPagination, output);
+
+      const totalPages = Math.ceil(filteredCollection.length / options.perPage);
+
+      renderPagination(options.page, totalPages);
 
       removeLoader();
     });
@@ -71,8 +78,8 @@ export default () => {
 
   // Bind a updateOptionsListener to the chosen strategry, if the strategry implements it,
   // this will callback when the options/filters need to be changed in response to the data
-  strategy.updateOptionsListener = (filteredItems) => {
-    outputCount(filteredItems.length);
+  strategy.updateOptionsListener = (filteredAndPagination, filteredCollection) => {
+    outputCount(filteredCollection.length);
   };
 
   // If we have a hash in the url, we immediately start running the fillters
@@ -94,11 +101,14 @@ export default () => {
   filter.classList.remove('is-cloaked');
 
   // Listen for changes on the filter, and re-run if changes happen
-  handleInput(filter, (type) => {
+  handleInput(filter, (type, page) => {
     if (type === 'change') {
       runFilter();
-    } else {
+    } else if (type === 'reset') {
       resetFilter(filter);
+      runFilter();
+    } else if (type === 'paginate') {
+      pageInput.value = page;
       runFilter();
     }
   });

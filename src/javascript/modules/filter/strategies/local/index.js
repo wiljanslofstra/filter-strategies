@@ -1,5 +1,6 @@
 import filterItems from './filterItems';
 import sortItems from './sortItems';
+import paginateItems from './paginateItems';
 
 /**
  * Run all types of filters on the data
@@ -32,9 +33,11 @@ export default {
 
     const filtered = filterAndSortItems(window.items, opts);
 
-    this.updateOptions(filtered);
+    const paginated = paginateItems(filtered, opts.page, opts.perPage);
 
-    cb(filtered);
+    this.updateOptions(paginated, filtered);
+
+    cb(paginated, filtered);
   },
 
   /**
@@ -42,7 +45,7 @@ export default {
    * like disabling input fields
    * @return {Void}
    */
-  updateOptions(filtered) {
-    this.updateOptionsListener(filtered);
+  updateOptions(paginated, filtered) {
+    this.updateOptionsListener(paginated, filtered);
   },
 };

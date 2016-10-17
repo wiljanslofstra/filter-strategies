@@ -88,6 +88,9 @@
                     </div>
                 </div>
 
+                <input type="hidden" name="page" value="1">
+                <input type="hidden" name="perPage" value="18">
+
                 <div class="form-group">
                     <a class="u-icon-link u-icon-link--before js-filter-reset" href="#">
                         <i class="icon icon-remove" aria-hidden="true"></i>Reset filters
@@ -100,6 +103,8 @@
 
                 <div class="js-filter-list items-wrapper">
                 </div>
+
+                <div class="js-filter-pagination pagination"></div>
             </div>
         </div>
     </div>
@@ -140,6 +145,18 @@
                 <%- item.radios.join(', ') %>
             </li>
             <% }); %>
+        </ul>
+    </script>
+
+    <script type="text/template" id="pagination-template">
+        <ul class="pagination-list">
+            <% for (var i = 1; i <= totalPages; i++) { %>
+            <li class="pagination-list__item">
+                <a class="js-filter-paginate" href="#" data-page="<%- i %>">
+                    <%- i %>
+                </a>
+            </li>
+            <% } %>
         </ul>
     </script>
 
