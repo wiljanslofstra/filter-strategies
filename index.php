@@ -162,7 +162,7 @@
         <ul class="pagination-list">
             <% pagesArr.forEach((item) => { %>
             <li class="pagination-list__item <% if (item === curPage) { %>is-active<% } %>">
-                <% if (item !== '...') { %>
+                <% if (item !== '...' && item !== curPage) { %>
                 <a class="js-filter-paginate" href="#" data-page="<%- item %>">
                     <%- item %>
                 </a>

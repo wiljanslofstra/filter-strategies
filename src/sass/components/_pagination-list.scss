@@ -39,7 +39,8 @@
       border-right: 0;
     }
 
-  .pagination-list__item.is-active a {
+  .pagination-list__item.is-active a,
+  .pagination-list__item.is-active span {
     color: $color-primary;
     font-weight: bold;
     pointer-events: none;
