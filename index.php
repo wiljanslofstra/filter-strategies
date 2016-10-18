@@ -160,13 +160,19 @@
 
     <script type="text/template" id="pagination-template">
         <ul class="pagination-list">
-            <% for (var i = 1; i <= totalPages; i++) { %>
-            <li class="pagination-list__item">
-                <a class="js-filter-paginate" href="#" data-page="<%- i %>">
-                    <%- i %>
+            <% pagesArr.forEach((item) => { %>
+            <li class="pagination-list__item <% if (item === curPage) { %>is-active<% } %>">
+                <% if (item !== '...') { %>
+                <a class="js-filter-paginate" href="#" data-page="<%- item %>">
+                    <%- item %>
                 </a>
+                <% } else { %>
+                    <span>
+                        <%- item %>
+                    </span>
+                <% } %>
             </li>
-            <% } %>
+            <% }); %>
         </ul>
     </script>
 
