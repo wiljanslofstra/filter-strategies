@@ -1,9 +1,9 @@
 # Filter strategies
 
 ## [Demo](https://wiljanslofstra.com/filter-strategies)
-- [Test with 1000 items](https://wiljanslofstra.com/filter-strategies?total-items=1000)
-- [Test with 5000 items](https://wiljanslofstra.com/filter-strategies?total-items=5000)
-- [Test with 10000 items](https://wiljanslofstra.com/filter-strategies?total-items=10000)
+- [Test with 1000 items](https://wiljanslofstra.com/filter-strategies/?total-items=1000)
+- [Test with 5000 items](https://wiljanslofstra.com/filter-strategies/?total-items=5000)
+- [Test with 10000 items](https://wiljanslofstra.com/filter-strategies/?total-items=10000)
 
 Filtering system written in vanilla Javascript. The system is separated in two parts, a part that
 takes care of input and rendering. And an interchangeable part that retrieves, filters and sorts

@@ -98,8 +98,8 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="page" value="1">
-                <input type="hidden" name="perPage" value="18">
+                <input type="hidden" name="page" value="1" data-default="1">
+                <input type="hidden" name="perPage" value="18" data-default="18">
 
                 <div class="form-group">
                     <a class="u-icon-link u-icon-link--before js-filter-reset" href="#">
