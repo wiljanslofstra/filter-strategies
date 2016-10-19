@@ -1,8 +1,14 @@
+.pagination {
+  text-align: center;
+}
+
 .pagination-list {
   list-style: none;
   padding: 0;
   font-size: 0;
   text-align: center;
+  display: inline-block;
+  vertical-align: top;
 }
   .pagination-list__item {
     display: inline-block;
@@ -10,7 +16,8 @@
     font-size: 1rem;
   }
     .pagination-list__item a,
-    .pagination-list__item span {
+    .pagination-list__item span,
+    .pagination-arrow {
       display: block;
       padding: .5rem;
       background: #fff;
@@ -45,3 +52,14 @@
     font-weight: bold;
     pointer-events: none;
   }
+
+  .pagination-arrow {
+    width: 36px;
+    display: inline-block;
+    vertical-align: top;
+  }
+    .pagination-arrow.is-disabled {
+      opacity: .3;
+      pointer-events: none;
+      cursor: default;
+    }

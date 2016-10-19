@@ -159,6 +159,10 @@
     </script>
 
     <script type="text/template" id="pagination-template">
+        <a class="pagination-arrow js-filter-paginate <% if (prevPage === curPage) { %>is-disabled<% } %>" href="#" title="Previous page" data-page="<%- prevPage %>">
+            &laquo;
+        </a>
+
         <ul class="pagination-list">
             <% pagesArr.forEach((item) => { %>
             <li class="pagination-list__item <% if (item === curPage) { %>is-active<% } %>">
@@ -174,6 +178,10 @@
             </li>
             <% }); %>
         </ul>
+
+        <a class="pagination-arrow js-filter-paginate <% if (nextPage === curPage) { %>is-disabled<% } %>" href="#" title="Next page" data-page="<%- nextPage %>">
+            &raquo;
+        </a>
     </script>
 
     <script async src="<?= BASE_URL; ?>/build/bundle.js" type="text/javascript"></script>

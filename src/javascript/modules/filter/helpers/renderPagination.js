@@ -33,6 +33,9 @@ export default (currentPage, totalPages) => {
     }
   });
 
-  const rendered = paginationTemplate({ pagesArr, totalPages, curPage });
+  const prevPage = ((curPage - 1) >= 1) ? curPage - 1 : 1;
+  const nextPage = ((curPage + 1) < totalPages) ? curPage + 1 : totalPages;
+
+  const rendered = paginationTemplate({ pagesArr, totalPages, curPage, prevPage, nextPage });
   paginationContainer.innerHTML = rendered;
 };

@@ -26,7 +26,11 @@ export default (el, cb) => {
   paginationContainer.addEventListener('click', (e) => {
     e.preventDefault();
 
-    if (e.target && e.target.className === 'js-filter-paginate') {
+    if (!e.target) return;
+
+    const className = e.target.className;
+
+    if (className.indexOf('js-filter-paginate') >= 0) {
       const paginationEl = e.target;
       const page = parseInt(paginationEl.dataset.page, 10);
 
