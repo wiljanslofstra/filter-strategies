@@ -2,6 +2,7 @@ module.exports = function(config) {
   var customLaunchers = {};
   var reporters = ['dots'];
   var browsers = ['Chrome'];
+  var singleRun = false;
 
   if (process.argv.indexOf('--sauce') >= 0) {
     var customLaunchers = {
@@ -44,13 +45,13 @@ module.exports = function(config) {
     reporters.push('saucelabs');
 
     browsers = Object.keys(customLaunchers);
-  } else {
 
+    singleRun = true;
   }
 
   config.set({
     browsers: browsers,
-    singleRun: true,
+    singleRun: singleRun,
     frameworks: ['mocha'],
     files: [
       'tests.webpack.js'
