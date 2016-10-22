@@ -24,14 +24,14 @@ export default {
    * @param  {Function} cb       Callback after the filtering has been done
    * @return {Void}
    */
-  filterWithOptions(opts, cb) {
+  filterWithOptions(opts, cb, items = window.items) {
     console.log('render with options', opts);
 
-    if (typeof window.items === 'undefined') {
+    if (typeof items === 'undefined') {
       throw new Error('By using the local filter strategy, you should have a items array');
     }
 
-    const filtered = filterAndSortItems(window.items, opts);
+    const filtered = filterAndSortItems(items, opts);
 
     const paginated = paginateItems(filtered, opts.page, opts.perPage);
 

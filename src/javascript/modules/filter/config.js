@@ -8,7 +8,7 @@ export default {
   // Choose the strategy for the filter
   // local: Using a array already available on the page
   // remote: Fetching products from an API
-  FILTER_STRATEGY: 'local',
+  FILTER_STRATEGY: (window.STRATEGY) ? window.STRATEGY : 'local',
 
   // Run the filter when initializing the filter
   FILTER_ON_INIT: true,

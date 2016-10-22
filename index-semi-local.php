@@ -119,26 +119,6 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        var items = [
-            <?php
-                $colors = array('red', 'blue', 'yellow', 'green');
-            ?>
-            <?php for ($i = 0; $i < $number_of_items; $i++) : ?>
-            {
-                name: 'test',
-                price: <?= rand(342, 3490); ?>,
-                popularity: <?= rand(0, 100); ?>,
-                options: ['option-<?= rand(0, 10); ?>', 'option-<?= rand(0, 10); ?>', 'option-<?= rand(0, 10); ?>'],
-                color: '<?= $colors[rand(0, 3)]; ?>',
-                radios: ['radio-<?= rand(0, 3); ?>'],
-            },
-            <?php endfor; ?>
-        ];
-
-        window.STRATEGY = 'local';
-    </script>
-
     <script type="text/template" id="item-template">
         <ul class="items-list">
             <% items.forEach(function(item) { %>
@@ -184,6 +164,10 @@
         <a class="pagination-arrow js-filter-paginate <% if (nextPage === curPage) { %>is-disabled<% } %>" href="#" title="Next page" data-page="<%- nextPage %>">
             &raquo;
         </a>
+    </script>
+
+    <script type="text/javascript">
+        window.STRATEGY = 'semi-local';
     </script>
 
     <script async src="<?= BASE_URL; ?>/build/bundle.js" type="text/javascript"></script>

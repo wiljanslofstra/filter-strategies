@@ -11,10 +11,17 @@ import renderPagination from './helpers/renderPagination';
 
 // Different strategies available to render products
 import strategyLocal from './strategies/local';
+import strategySemiLocal from './strategies/semi-local';
 import strategyRemote from './strategies/remote';
 
+const strategies = {
+  local: strategyLocal,
+  'semi-local': strategySemiLocal,
+  remote: strategyRemote,
+};
+
 // Select the strategry with the config parameter
-const strategy = config.FILTER_STRATEGY === 'local' ? strategyLocal : strategyRemote;
+const strategy = strategies[config.FILTER_STRATEGY];
 
 // Reference to the filter
 const filter = document.querySelector(config.FILTER_CLASS);
