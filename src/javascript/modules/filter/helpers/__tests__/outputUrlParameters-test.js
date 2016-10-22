@@ -32,6 +32,8 @@ describe('outputUrlParameters', function () {
   });
 
   it('should have an empty hash and a search string when requestType is get', function () {
+    window.location.hash = '';
+
     outputUrlParameters({
       options: {
         test: '123',
@@ -39,7 +41,12 @@ describe('outputUrlParameters', function () {
       },
     }, 'get');
 
-    expect(window.location.hash).to.equal('');
-    expect(window.location.search).to.equal('?options[test]=123&options[test2]=321');
+    if (window.history && typeof window.history.replaceState !== 'undefined') {
+      expect(window.location.hash).to.equal('');
+      expect(window.location.search).to.equal('?options[test]=123&options[test2]=321');
+    } else {
+      expect(window.location.hash).to.equal('#options[test]=123&options[test2]=321');
+      expect(window.location.search).to.equal('');
+    }
   });
 });

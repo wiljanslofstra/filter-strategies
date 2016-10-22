@@ -5,6 +5,7 @@ import retrieveUrlParameters from '../retrieveUrlParameters';
 
 describe('retrieveUrlParameters', function () {
   it ('should retrieve an empty object when no hash is set', function () {
+    window.location.hash = '';
     const obj = retrieveUrlParameters();
     expect(obj).to.deep.equal({});
   });

@@ -24,7 +24,8 @@
     "build:lodash": "lodash include=\"each,filter,map,debounce,template,sortBy\" -o assets/javascript/vendor/lodash.custom.js",
     "analyse:eslint": "eslint src/javascript/**/*.js",
     "copy:static": "cp -av src/icons build/icons && cp -av src/images build/images",
-    "test": "karma start"
+    "test": "karma start",
+    "test-multi": "karma start --sauce"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.0",
@@ -34,21 +35,22 @@
     "babel-preset-es2015": "^6.16.0",
     "chai": "^3.5.0",
     "cssnano": "^3.7.6",
-    "eslint": "^3.7.1",
+    "eslint": "^3.8.1",
     "eslint-config-airbnb": "^12.0.0",
-    "eslint-loader": "^1.5.0",
-    "eslint-plugin-import": "^2.0.0",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
     "imports-loader": "^0.6.5",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-mocha": "^1.2.0",
+    "karma-sauce-launcher": "^1.0.0",
     "karma-webpack": "^1.8.0",
     "mocha": "^3.1.2",
     "node-sass": "^3.10.1",
     "nodemon": "^1.11.0",
-    "postcss": "^5.2.4",
+    "postcss": "^5.2.5",
     "postcss-reporter": "^1.4.1",
     "webpack": "^1.13.2"
   },
@@ -59,7 +61,7 @@
     "es6-promise": "^4.0.5",
     "lodash": "~4.16.4",
     "npm-run-all": "^3.1.1",
-    "qs": "^6.2.1",
+    "qs": "^6.3.0",
     "whatwg-fetch": "^1.0.0"
   }
 }

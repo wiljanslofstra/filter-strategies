@@ -12,7 +12,7 @@ export default (obj, requestType = config.PARAMETER_TYPE) => {
 
   const paramType = (requestType === 'get') ? '?' : '#';
 
-  if (window.history) {
+  if (window.history && typeof window.history.replaceState !== 'undefined') {
     window.history.replaceState(undefined, undefined, `${paramType}${stringified}`);
   } else {
     location.hash = stringified;
