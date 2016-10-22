@@ -1,13 +1,16 @@
 import { template } from 'lodash';
 
 const paginationContainer = document.querySelector('.js-filter-pagination');
-const paginationHTML = document.getElementById('pagination-template').innerHTML;
-const paginationTemplate = template(paginationHTML);
+let paginationHTML = '';
+let paginationTemplate = '';
 
-export default (currentPage, totalPages) => {
+if (paginationContainer) {
+  paginationHTML = document.getElementById('pagination-template').innerHTML;
+  paginationTemplate = template(paginationHTML);
+}
+
+export function getNecessaryPages(curPage, totalPages) {
   const pagesArr = [];
-
-  const curPage = parseInt(currentPage, 10);
 
   const beforeCurPage = (curPage - 2) ? curPage - 2 : 1;
   const afterCurPage = curPage + 2;
@@ -26,12 +29,31 @@ export default (currentPage, totalPages) => {
     }
   }
 
+  return pagesArr;
+}
+
+export function fillTheGaps(arr) {
+  const pagesArr = arr.slice(0);
+
   // Add ... between the gaps
   pagesArr.forEach((page, i) => {
     if (page - pagesArr[i - 1] > 1) {
       pagesArr.splice(i, 0, '...');
     }
   });
+
+  return pagesArr;
+}
+
+export default (currentPage, totalPages) => {
+  if (!paginationContainer || !paginationHTML) {
+    return;
+  }
+
+  const curPage = parseInt(currentPage, 10);
+
+  let pagesArr = getNecessaryPages(curPage, totalPages);
+  pagesArr = fillTheGaps(pagesArr);
 
   const prevPage = ((curPage - 1) >= 1) ? curPage - 1 : 1;
   const nextPage = ((curPage + 1) < totalPages) ? curPage + 1 : totalPages;

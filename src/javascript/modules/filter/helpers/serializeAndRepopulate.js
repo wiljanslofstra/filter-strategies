@@ -3,7 +3,7 @@
  * @param  {Array}  els Array with input element
  * @return {Object}     Serialized data object
  */
-function serializeInput(els) {
+export function serializeInput(els) {
   // return all data
   const responseData = {};
 
@@ -45,7 +45,7 @@ function serializeInput(els) {
  * @param  {Object} data Object with all data to populate the input fields with
  * @return {Void}
  */
-function populateForm(els, data) {
+export function populateForm(els, data) {
   els.forEach((el) => {
     const elInst = el;
 

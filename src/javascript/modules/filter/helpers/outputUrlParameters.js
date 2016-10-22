@@ -7,10 +7,10 @@ import config from '../config';
  * @param  {Object} obj Options to stringify and output
  * @return {Void}
  */
-export default (obj) => {
+export default (obj, requestType = config.PARAMETER_TYPE) => {
   const stringified = qs.stringify(obj, { encode: false });
 
-  const paramType = (config.PARAMETER_TYPE === 'get') ? '?' : '#';
+  const paramType = (requestType === 'get') ? '?' : '#';
 
   if (window.history) {
     window.history.replaceState(undefined, undefined, `${paramType}${stringified}`);
