@@ -22,6 +22,9 @@ describe('serializeAndRepopulate', function () {
       checkbox: ['2', '3'],
       radio: ['1'],
     });
+
+    var oldForm = document.getElementById('form');
+    document.body.removeChild(oldForm);
   });
 
   it('should repopulate the form with multiple types of input', function() {
@@ -32,9 +35,6 @@ describe('serializeAndRepopulate', function () {
       checkbox: ['2', '3'],
       radio: ['1'],
     };
-
-    var oldForm = document.getElementById('form');
-    document.body.removeChild(oldForm);
 
     var el = document.createElement('form');
     el.id = 'form';
@@ -53,5 +53,8 @@ describe('serializeAndRepopulate', function () {
       checkbox: ['2', '3'],
       radio: ['1'],
     });
+
+    var oldForm = document.getElementById('form');
+    document.body.removeChild(oldForm);
   });
 });
