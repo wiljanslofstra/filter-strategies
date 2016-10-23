@@ -1,5 +1,6 @@
 <?php
-    define('BASE_URL', '/' . basename(dirname($_SERVER[PHP_SELF])));
+    $base_directory = basename(dirname($_SERVER[PHP_SELF]));
+    define('BASE_URL', ($base_directory != '') ? '/' . $base_directory : $base_directory);
 
     $number_of_items = 500;
 

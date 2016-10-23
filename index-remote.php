@@ -1,5 +1,6 @@
 <?php
-    define('BASE_URL', '/' . basename(dirname($_SERVER[PHP_SELF])));
+    $base_directory = basename(dirname($_SERVER[PHP_SELF]));
+    define('BASE_URL', ($base_directory != '') ? '/' . $base_directory : $base_directory);
 ?>
 <!DOCTYPE html>
 <!--[if lte IE 9]><html class="no-js ie9 "> <![endif]-->
