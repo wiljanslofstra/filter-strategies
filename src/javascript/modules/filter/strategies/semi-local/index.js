@@ -1,7 +1,7 @@
 import request from 'superagent';
 import localStrategy from '../local';
 
-let products = [];
+let items = [];
 
 export default {
   updateOptionsListener: () => {},
@@ -13,33 +13,33 @@ export default {
    * @return {Void}
    */
   filterWithOptions(opts, cb) {
-    if (products.length) {
-      this.handleProducts(opts, cb, products);
+    if (items.length) {
+      this.handleItems(opts, cb, items);
     } else {
       request
-        .get('products.php')
+        .get('server/api.php')
         .type('application/json')
         .end((err, res) => {
           if (err) {
             throw new Error(err);
           }
 
-          // 'cache' products
-          products = res.body;
+          // 'cache' items
+          items = res.body;
 
-          this.handleProducts(opts, cb, res.body);
+          this.handleItems(opts, cb, res.body);
         });
     }
   },
 
   /**
-   * Handle products
+   * Handle items
    * @param  {Object}   opts Options object
    * @param  {Function} cb   Callback after the local strategy has finished
-   * @param  {Array}    arr  Array of products
+   * @param  {Array}    arr  Array of items
    * @return {Void}
    */
-  handleProducts(opts, cb, arr) {
+  handleItems(opts, cb, arr) {
     localStrategy.filterWithOptions(opts, (paginated, filtered) => {
       this.updateOptions(paginated, filtered);
       cb(paginated, filtered);

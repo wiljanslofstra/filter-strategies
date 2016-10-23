@@ -5,9 +5,11 @@ export default (arr, opts) => filter(arr, (item) => {
 
   // Loop through filters
   each(opts, (opt, optKey) => {
+    const itemPrice = parseFloat(item.price);
+
     // Handle price filtering
-    if (optKey === 'price-from' && item.price < opt) { itemValid = false; }
-    if (optKey === 'price-to' && item.price > opt) { itemValid = false; }
+    if (optKey === 'price-from' && itemPrice < opt) { itemValid = false; }
+    if (optKey === 'price-to' && itemPrice > opt) { itemValid = false; }
 
     if (typeof item[optKey] === 'undefined') {
       return;

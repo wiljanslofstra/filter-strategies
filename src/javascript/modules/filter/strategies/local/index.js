@@ -25,7 +25,7 @@ export default {
    * @return {Void}
    */
   filterWithOptions(opts, cb, items = window.items) {
-    console.log('render with options', opts);
+    console.log('render with options', opts, items);
 
     if (typeof items === 'undefined') {
       throw new Error('By using the local filter strategy, you should have a items array');
