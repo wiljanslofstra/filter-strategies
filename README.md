@@ -20,11 +20,11 @@ whole dataset needs to be downloaded. So this is still not suitable for large da
 ### Remote - on each filter change a request to the API is made for items
 For large datasets, it will only retrieve the items from the API that are on the current page.
 The requested payloads will be smaller, but there is a little delay when paginating or filtering.
-// TODO
+- [Demo with 1000 items](https://wiljanslofstra.com/filter-strategies/index-remote.php)
 
 ## Roadmap
 - [x] Pagination
-- [ ] Add remote strategy (fetch items from an API)
+- [x] Add remote strategy (fetch items from an API)
 - [x] Add filter remove/reset button and implementation
 - [ ] Add a nice price slider (at the moment we only have two input fields)
 - [ ] Create a real life example
