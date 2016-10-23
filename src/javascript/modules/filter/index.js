@@ -66,7 +66,7 @@ function runFilter() {
     outputUrlParameters(options);
 
     // Render the items with the chosen strategry
-    strategy.filterWithOptions(options, (filteredAndPagination, originalCollection) => {
+    strategy.filterWithOptions(options, (filteredAndPagination) => {
       renderItems.render(filteredAndPagination, output);
       removeLoader();
     });
@@ -81,13 +81,20 @@ export default () => {
   // Bind a updateOptionsListener to the chosen strategry, if the strategry implements it,
   // this will callback when the options/filters need to be changed in response to the data
   strategy.updateOptionsListener = (options, filteredAndPagination, originalCollection) => {
-    const totalPages = Math.ceil(originalCollection.length / options.perPage);
-
-    renderPagination(options.page, totalPages);
+    let totalPages, totalItems, page;
 
     if (Array.isArray(originalCollection)) {
-      outputCount(originalCollection.length);
+      totalPages = Math.ceil(originalCollection.length / options.perPage);
+      totalItems = originalCollection.length;
+    } else {
+      totalPages = originalCollection.total_pages;
+      totalItems = originalCollection.total_items;
     }
+
+    page = (options.page > totalPages) ? totalPages : options.page;
+
+    renderPagination(page, totalPages);
+    outputCount(totalItems);
   };
 
   // If we have a hash in the url, we immediately start running the fillters

@@ -81,7 +81,17 @@
         }
     }
 
+    $total_items = count($filtered_arr);
+
+    $filtered_arr = array_slice($filtered_arr, ($post['page'] - 1) * $post['perPage'], $post['perPage']);
+
     header('Content-Type: application/json');
 
-    echo json_encode($filtered_arr);
+    echo json_encode([
+        'items' => $filtered_arr,
+        'options' => [
+            'total_pages' => ceil($total_items / $post['perPage']),
+            'total_items' => $total_items
+        ]
+    ]);
 ?>

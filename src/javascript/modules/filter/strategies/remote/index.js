@@ -24,9 +24,9 @@ export default {
           throw new Error(err);
         }
 
-        this.updateOptions(opts, res.body, res.body);
+        this.updateOptions(opts, res.body.items, res.body.options);
 
-        cb(res.body, res.body);
+        cb(res.body.items);
       });
   },
 
