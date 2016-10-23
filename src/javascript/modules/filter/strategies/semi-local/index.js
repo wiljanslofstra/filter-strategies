@@ -41,7 +41,7 @@ export default {
    */
   handleItems(opts, cb, arr) {
     localStrategy.filterWithOptions(opts, (paginated, filtered) => {
-      this.updateOptions(paginated, filtered);
+      this.updateOptions(opts, paginated, filtered);
       cb(paginated, filtered);
     }, arr);
   },
@@ -51,7 +51,7 @@ export default {
    * like disabling input fields
    * @return {Void}
    */
-  updateOptions(paginated, filtered) {
-    this.updateOptionsListener(paginated, filtered);
+  updateOptions(options, paginated, filtered) {
+    this.updateOptionsListener(options, paginated, filtered);
   },
 };

@@ -35,7 +35,7 @@ export default {
 
     const paginated = paginateItems(filtered, opts.page, opts.perPage);
 
-    this.updateOptions(paginated, filtered);
+    this.updateOptions(opts, paginated, filtered);
 
     cb(paginated, filtered);
   },
@@ -45,7 +45,7 @@ export default {
    * like disabling input fields
    * @return {Void}
    */
-  updateOptions(paginated, filtered) {
-    this.updateOptionsListener(paginated, filtered);
+  updateOptions(options, paginated, filtered) {
+    this.updateOptionsListener(options, paginated, filtered);
   },
 };
