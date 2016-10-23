@@ -1,15 +1,5 @@
 <?php
-    define('BASE_URL', '');
-
-    $number_of_items = 500;
-
-    if (isset($_GET) && isset($_GET['total-items'])) {
-        $number_of_items = $_GET['total-items'];
-
-        if ($number_of_items > 50000) {
-            $number_of_items = 50000;
-        }
-    }
+    define('BASE_URL', '/' . basename(dirname($_SERVER[PHP_SELF])));
 ?>
 <!DOCTYPE html>
 <!--[if lte IE 9]><html class="no-js ie9 "> <![endif]-->

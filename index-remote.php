@@ -1,5 +1,5 @@
 <?php
-    define('BASE_URL', '');
+    define('BASE_URL', '/' . basename(dirname($_SERVER[PHP_SELF])));
 ?>
 <!DOCTYPE html>
 <!--[if lte IE 9]><html class="no-js ie9 "> <![endif]-->
